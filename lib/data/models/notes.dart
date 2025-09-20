@@ -19,4 +19,12 @@ class Notes {
   Map<String, dynamic> toMap() {
     return {'title': title, 'body': body, 'createdAt': createdAt};
   }
+
+  Notes copyWith({String? title, String? body, Timestamp? createdAt}) {
+    return Notes(
+      title: title ?? this.title,
+      body: body ?? this.body,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
 }

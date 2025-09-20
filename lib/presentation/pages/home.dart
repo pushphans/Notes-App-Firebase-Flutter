@@ -116,7 +116,7 @@ class _HomeState extends State<Home> {
               }
 
               if (snapshot.hasData) {
-                List notes = snapshot.data!.docs ?? [];
+                List notes = snapshot.data?.docs ?? [];
                 if (notes.isEmpty) {
                   return Center(child: Text("No notes found"));
                 }
@@ -124,10 +124,23 @@ class _HomeState extends State<Home> {
                   itemCount: notes.length,
                   itemBuilder: (context, index) {
                     Notes note = notes[index].data();
+                    String id = notes[index].id;
 
                     return Padding(
                       padding: EdgeInsets.all(10),
                       child: ListTile(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/update',
+                            arguments: (id, note),
+                          );
+                        },
+
+                        onLongPress: () {
+                          dbService.deleteNote(id);
+                        },
+
                         tileColor: Colors.deepPurple.shade200,
                         title: Text(note.title),
                         subtitle: Text(note.body),

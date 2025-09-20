@@ -22,4 +22,12 @@ class DatabaseService {
   void addNote(Notes note) async {
     _noteRef.add(note);
   }
+
+  void updateNote(String id, Notes note) async {
+    _noteRef.doc(id).update(note.toMap());
+  }
+
+  void deleteNote(String id) async{
+    _noteRef.doc(id).delete();
+  }
 }
