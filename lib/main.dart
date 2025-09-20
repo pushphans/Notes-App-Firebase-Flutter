@@ -6,7 +6,6 @@ import 'package:notes_app_firebase_flutter/presentation/pages/home.dart';
 import 'package:notes_app_firebase_flutter/presentation/pages/login_page.dart';
 import 'package:notes_app_firebase_flutter/presentation/pages/register_page.dart';
 import 'package:notes_app_firebase_flutter/presentation/providers/auth_viewmodel.dart';
-import 'package:notes_app_firebase_flutter/presentation/providers/firestore_viewmodel.dart';
 import 'package:notes_app_firebase_flutter/utils/widgets/toggle_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -19,8 +18,6 @@ void main() async {
         ChangeNotifierProvider(
           create: (BuildContext context) => AuthViewModel(),
         ),
-
-        ChangeNotifierProvider(create: (context) => FireStoreViewModel()),
       ],
       child: MyApp(),
     ),

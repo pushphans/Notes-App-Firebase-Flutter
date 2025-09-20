@@ -1,30 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Notes {
-  final String id;
-  final String title;
-  final String body;
-  DateTime createdAt;
+  String title;
+  String body;
 
-  Notes({
-    required this.id,
-    required this.title,
-    required this.body,
-    required this.createdAt,
-  });
+  Timestamp createdAt;
 
-  factory Notes.fromMap(Map<String, dynamic> map, String docId) {
+  Notes({required this.title, required this.body, required this.createdAt});
+
+  factory Notes.fromMap(Map<String, dynamic> map) {
     return Notes(
-      id: docId,
-      title: map['title'],
-      body: map['body'],
-      createdAt: map['created_at'].toDate(),
+      title: map['title']! as String,
+      body: map['body']! as String,
+      createdAt: map['createdAt']! as Timestamp,
     );
   }
 
   Map<String, dynamic> toMap() {
-    return {
-      'title': title,
-      'body': body,
-      'created_at': createdAt?.toIso8601String(),
-    };
+    return {'title': title, 'body': body, 'createdAt': 'createdAt'};
   }
 }
