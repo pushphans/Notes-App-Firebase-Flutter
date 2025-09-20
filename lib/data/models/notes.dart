@@ -17,6 +17,6 @@ class Notes {
   }
 
   Map<String, dynamic> toMap() {
-    return {'title': title, 'body': body, 'createdAt': 'createdAt'};
+    return {'title': title, 'body': body, 'createdAt': createdAt};
   }
 }

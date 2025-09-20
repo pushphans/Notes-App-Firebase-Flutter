@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:notes_app_firebase_flutter/data/datasources/auth_data_source.dart';
+import 'package:notes_app_firebase_flutter/data/services/auth_data_source.dart';
 
 class AuthRepository {
   final source = AuthDataSource();
